@@ -1,0 +1,234 @@
+#define MANIFEST 24
+#define IDM_TypeLibs 10001
+#define IDM_Code 10005
+#define IDM_Help 10011
+#define code_full2 10018
+#define Static1 10020
+#define Static2 10021
+#define code_mkDisp2 10030
+#define dlgMain 1000
+#define IDC_TAB1 1001
+#define IDC_STC3 1002
+#define IDC_EDT1 1003
+#define IDC_SBR1 1004
+#define IDC_STC31 1430
+#define IDC_EDT31 1432
+
+
+#define dlgList 1100
+#define IDC_LSV1 1101
+#define dlgCode 1200
+#define IDC_RED1 1201
+#define IDR_MENU1 10000
+#define tlb_reged 10002
+#define tlb_libfile 10003
+#define regf 10026
+#define unregl 10027
+#define tlb_exit 10004
+#define Search_F2 10035
+#define Search_F3 10036
+#define Search_F4 10037
+#define code_const 10006
+#define code_Module 10007
+#define code_vtable 10008
+#define code_Invoke 10009
+#define code_event 10010
+#define code_save 10017
+#define code_codegen 10016
+#define code_init 10014
+#define code_ident 10019
+#define code_Disp 10028
+#define code_full 10015
+#define code_Disp2 10029
+#Define uOcx1 10020
+#Define uOcx2 10021
+#define Static3 10031
+#define Static4 10032
+#define Static5 10033
+#Define Static6 10034
+#define codll 10022
+#define codll71 10023
+#define aodll 10024
+#define aodll71 10025
+#define hlp_axsuite 10013
+#define As_AxSuite 10060
+#define As_DispHelper 10061
+#define hlp_About 10012
+#define dlgTree 1300
+#define IDC_TRV1 1301
+#define IDR_XPMANIFEST1 1
+#define dlgAbout 1400
+#define IDC_IMG1 1401
+#define IDC_STC1 1402
+#define IDC_STC2 1403
+#define IDC_IMG2 1404
+#define IDC_STC4 1405
+#define IDC_STC5 1406
+#define IDC_STC6 1407
+#define dlg_Ask 1410
+#define IDC_BTN21 1412
+#define IDC_EDT11 1413
+#define IDC_BTN11 1414
+#define IDC_STC11 1415
+#define tlb 100
+#define fb 101
+#define IDR_VERSION1 1
+
+dlgMain DIALOGEX 10,10,397,204
+CAPTION "AxSuite3"
+FONT 8,"MS Sans Serif",0,0,0
+MENU IDR_MENU1
+STYLE WS_POPUP|WS_ICONIC|WS_VISIBLE|WS_MAXIMIZE|WS_OVERLAPPEDWINDOW|DS_CENTER|DS_MODALFRAME
+EXSTYLE WS_EX_DLGMODALFRAME
+BEGIN
+  CONTROL "",IDC_TAB1,"SysTabControl32",WS_CHILDWINDOW|WS_VISIBLE|WS_TABSTOP|TCS_FOCUSNEVER,0,0,216,180
+  CONTROL "Prefix  ",IDC_STC3,"Button",WS_CHILDWINDOW|WS_VISIBLE|BS_RIGHT|BS_DEFPUSHBUTTON,240,0,18,12
+  CONTROL "",IDC_EDT1,"Edit",WS_CHILDWINDOW|WS_VISIBLE|WS_TABSTOP,252,3,57,9,WS_EX_CLIENTEDGE
+  CONTROL "Search...",IDC_STC31,"Button",WS_CHILDWINDOW|WS_VISIBLE|BS_RIGHT|BS_DEFPUSHBUTTON,225,0,35,12
+  CONTROL "",IDC_EDT31,"Edit",WS_CHILDWINDOW|WS_VISIBLE|WS_TABSTOP,263,0,360,12,WS_EX_CLIENTEDGE
+  CONTROL "Nothing selected",IDC_SBR1,"msctls_statusbar32",WS_CHILDWINDOW|WS_VISIBLE|CCS_BOTTOM,6,192,54,15
+END
+
+dlgList DIALOGEX 10,10,150,100
+FONT 8,"MS Sans Serif",0,0,0
+STYLE WS_CHILDWINDOW|WS_VISIBLE
+BEGIN
+  CONTROL "",IDC_LSV1,"SysListView32",WS_CHILDWINDOW|WS_VISIBLE|WS_TABSTOP|LVS_SHOWSELALWAYS|LVS_SINGLESEL|LVS_REPORT,0,3,147,96,WS_EX_CLIENTEDGE
+END
+
+dlgCode DIALOGEX 10,10,150,100
+FONT 8,"MS Sans Serif",0,0,0
+STYLE WS_CHILDWINDOW|WS_VISIBLE
+BEGIN
+  CONTROL "IDC_RED",IDC_RED1,"RichEdit20A",WS_CHILDWINDOW|WS_VISIBLE|WS_VSCROLL|WS_HSCROLL|WS_TABSTOP|ES_WANTRETURN|ES_AUTOHSCROLL|ES_AUTOVSCROLL|ES_MULTILINE,1,3,144,93,WS_EX_CLIENTEDGE
+END
+
+IDR_MENU1 MENU
+BEGIN
+  POPUP "Files     "
+  BEGIN
+    MENUITEM "Refresh Registered List",tlb_reged
+    MENUITEM "Open Lib File",tlb_libfile
+    MENUITEM SEPARATOR
+    MENUITEM "Register Lib from File :         Warning !!!",regf
+    MENUITEM SEPARATOR
+    MENUITEM "Unregister Selected Lib :         Warning !!!",unregl
+    MENUITEM SEPARATOR
+    MENUITEM "Exit",tlb_exit
+  END
+  POPUP "Search Lib...    "
+  BEGIN
+    MENUITEM "New Lib Search...    ",Search_F2
+    MENUITEM SEPARATOR
+    MENUITEM "Find Next Lib",Search_F3
+    MENUITEM "Find Previous Lib",Search_F4
+  END
+  POPUP "Code Generation    "
+  BEGIN
+    MENUITEM "Constants Code",code_const
+    MENUITEM "Module    Code",code_Module
+    MENUITEM "vTable    Code",code_vtable
+    MENUITEM "Invoke    Code",code_Invoke
+    MENUITEM "Events    Code",code_event
+    MENUITEM SEPARATOR
+    MENUITEM "Save Code to File",code_save
+    MENUITEM "Copy Code to Clipboard",code_codegen
+  END
+  POPUP "Code Templates    "
+  BEGIN
+    MENUITEM "Template : Visual Control         _ select 1 CoClass ",code_ident
+    MENUITEM "Template : Not-Visual Control   _ select 1 CoClass",code_Disp
+    MENUITEM SEPARATOR
+    MENUITEM "Template : Visual Control + Events         _ select 1 CoClass ",code_full
+    MENUITEM "Template : Not-Visual Control + Events   _ select 1 CoClass",code_Disp2
+	 MENUITEM SEPARATOR
+    MENUITEM "Mini Template : Unregistered Visual Control    _ select 1 CoClass ",uOcx1
+    MENUITEM "Mini Template : Unregistered Not-Visual Control    _ select 1 CoClass",uOcx2
+    MENUITEM SEPARATOR
+    MENUITEM "Save Template to File",code_save
+    MENUITEM "Copy Template to Clipboard",code_codegen
+  END
+  POPUP "More files ...      "
+  BEGIN
+//    MENUITEM "Create    Static lib  LibAx_Lite.a",Static3
+//    MENUITEM "Create    include file    Ax_Lite_Lib.bi",Static4
+//    MENUITEM SEPARATOR
+    MENUITEM "Create  Include File :  Ax_Lite.bi",Static5
+	 MENUITEM "Copy Code from :  Ax_Lite.bi",Static6
+    MENUITEM SEPARATOR
+    MENUITEM "Create  Dll   Atl.dll",codll
+    MENUITEM "Create  Dll   Atl71.dll",codll71
+    MENUITEM SEPARATOR
+    MENUITEM "Create  FbEdit Addin  for Atl",aodll
+    MENUITEM "Create  FbEdit Addin  for Atl71",aodll71
+  END
+  POPUP "Help"
+  BEGIN
+    MENUITEM "AxSuite3 Help    : AxSuite3.chm",hlp_axsuite
+    MENUITEM SEPARATOR
+    MENUITEM "AxSuite Assistant : AxSuite3.pdf",As_AxSuite
+    MENUITEM SEPARATOR
+    MENUITEM "About",hlp_About
+  END
+END
+
+dlgTree DIALOGEX 10,10,165,120
+FONT 8,"MS Sans Serif",0,0,0
+STYLE WS_CHILDWINDOW|WS_VISIBLE
+BEGIN
+  CONTROL "",IDC_TRV1,"SysTreeView32",WS_CHILDWINDOW|WS_VISIBLE|WS_TABSTOP|TVS_CHECKBOXES|TVS_SHOWSELALWAYS|TVS_LINESATROOT|TVS_HASLINES|TVS_HASBUTTONS,6,3,153,114,WS_EX_CLIENTEDGE
+END
+
+IDR_XPMANIFEST1 MANIFEST "xpmanifest.xml"
+
+dlgAbout DIALOGEX 10,10,265,61
+CAPTION "About"
+FONT 8,"MS Sans Serif",0,0,0
+STYLE WS_VISIBLE|WS_CAPTION|WS_SYSMENU|DS_CENTER
+BEGIN
+  CONTROL tlb,IDC_IMG1,"Static",WS_CHILDWINDOW|WS_VISIBLE|SS_CENTERIMAGE|SS_ICON,13,6,30,30
+  CONTROL "AxSuite",IDC_STC1,"Static",WS_CHILDWINDOW|WS_VISIBLE|SS_CENTERIMAGE|SS_CENTER,88,3,60,15
+  CONTROL "Object Browser and Code Generator for FreeBASIC",IDC_STC2,"Static",WS_CHILDWINDOW|WS_VISIBLE|SS_CENTER,48,21,168,9
+  CONTROL fb,IDC_IMG2,"Static",WS_CHILDWINDOW|WS_VISIBLE|SS_CENTERIMAGE|SS_ICON,219,6,30,30
+  CONTROL "Based on Jose Roca COM/ActiveX Programming",IDC_STC4,"Static",WS_CHILDWINDOW|WS_VISIBLE|SS_CENTER,54,30,159,8
+  CONTROL "== Original by Loe 2009 === modified by RP Feb 2015 ==",IDC_STC5,"Static",WS_CHILDWINDOW|WS_VISIBLE|SS_CENTERIMAGE|SS_CENTER,45,39,178,12
+  CONTROL "version 3.2",IDC_STC6,"Static",WS_CHILDWINDOW|WS_VISIBLE|SS_CENTERIMAGE,151,9,60,9
+END
+
+dlg_Ask DIALOGEX 6,5,194,80
+CAPTION "Search..."
+FONT 9,"MS Sans Serif",2000,0,0
+STYLE WS_VISIBLE|WS_CAPTION|WS_SYSMENU|WS_THICKFRAME|DS_CENTER
+BEGIN
+  CONTROL "Cancel",IDC_BTN21,"Button",WS_CHILDWINDOW|WS_VISIBLE|WS_TABSTOP,99,56,63,18
+  CONTROL "Input here",IDC_EDT11,"Edit",WS_CHILDWINDOW|WS_VISIBLE|WS_TABSTOP|ES_NOHIDESEL,15,32,165,15,WS_EX_CLIENTEDGE
+  CONTROL "Ok",IDC_BTN11,"Button",WS_CHILDWINDOW|WS_VISIBLE|WS_TABSTOP,27,56,63,18
+  CONTROL "Define your search here !",IDC_STC11,"Static",WS_CHILDWINDOW|WS_VISIBLE|SS_CENTERIMAGE|SS_CENTER,12,7,174,24
+END
+
+tlb ICON DISCARDABLE "tlb.ico"
+fb ICON DISCARDABLE "fb.ico"
+
+IDR_VERSION1 VERSIONINFO
+FILEVERSION 3,2,0,0
+PRODUCTVERSION 3,2,0,0
+FILEOS 0x00000004
+FILETYPE 0x00000000
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "FFFF0000"
+    BEGIN
+      VALUE "FileVersion", "3.2.0.0\0"
+      VALUE "ProductVersion", "3.2.0.0\0"
+      VALUE "OriginalFilename", "AxSuite3\0"
+      VALUE "ProductName", "AxSuite3\0"
+      VALUE "CompanyName", "LoeSoft+RP\0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0xFFFF, 0x0000
+  END
+END
+
